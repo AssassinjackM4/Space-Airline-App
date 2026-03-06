@@ -1,0 +1,264 @@
+.admin-panel {
+  padding: 40px 20px;
+}
+
+.admin-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.admin-header h1 {
+  font-size: 36px;
+  color: #0066cc;
+  margin-bottom: 10px;
+}
+
+.admin-header p {
+  font-size: 18px;
+  color: #666;
+}
+
+.admin-controls {
+  margin-bottom: 30px;
+  display: flex;
+  gap: 15px;
+}
+
+.admin-controls .btn {
+  padding: 12px 30px !important;
+}
+
+/* Flight Form */
+.flight-form-card {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  margin-bottom: 40px;
+  animation: slideDown 0.3s ease-out;
+}
+
+.flight-form-card h2 {
+  font-size: 24px;
+  color: #0066cc;
+  margin-bottom: 25px;
+}
+
+.flight-form-card form {
+  width: 100%;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+  font-size: 14px;
+}
+
+.form-group input,
+.form-group select {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #0066cc;
+  box-shadow: 0 0 8px rgba(0, 102, 204, 0.2);
+  background-color: #f9f9f9;
+}
+
+.btn-block {
+  width: 100%;
+  padding: 12px !important;
+  margin-top: 20px;
+}
+
+/* Flights Management */
+.flights-management {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.flights-management h2 {
+  font-size: 24px;
+  color: #0066cc;
+  margin-bottom: 25px;
+}
+
+.flights-table-container {
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+.flights-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.flights-table thead {
+  background-color: #f8f9fa;
+}
+
+.flights-table th {
+  padding: 15px;
+  text-align: left;
+  font-weight: 600;
+  color: #0066cc;
+  border-bottom: 2px solid #ddd;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.flights-table td {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+  color: #333;
+}
+
+.flights-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.flight-number {
+  font-weight: 600;
+  color: #0066cc;
+}
+
+.price {
+  color: #ff6b35;
+  font-weight: 600;
+}
+
+.status-badge {
+  padding: 5px 12px;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.status-badge.scheduled {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.status-badge.cancelled {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.status-badge.arrived {
+  background-color: #d1ecf1;
+  color: #0c5460;
+}
+
+.status-badge.departed {
+  background-color: #e2e3e5;
+  color: #383d41;
+}
+
+.actions {
+  text-align: center;
+}
+
+.btn-small {
+  padding: 8px 16px !important;
+  font-size: 13px !important;
+  margin: 0 5px;
+}
+
+.btn.btn-danger {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn.btn-danger:hover {
+  background-color: #c82333;
+}
+
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.success-message {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.loading,
+.no-results {
+  text-align: center;
+  padding: 40px 20px;
+  color: #666;
+  font-size: 16px;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .admin-panel {
+    padding: 20px 10px;
+  }
+
+  .admin-header h1 {
+    font-size: 28px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .flights-table {
+    font-size: 13px;
+  }
+
+  .flights-table th,
+  .flights-table td {
+    padding: 10px;
+  }
+
+  .btn-small {
+    padding: 6px 12px !important;
+    font-size: 12px !important;
+  }
+}
