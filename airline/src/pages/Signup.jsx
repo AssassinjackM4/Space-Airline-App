@@ -28,9 +28,9 @@ function Signup({ setIsAuthenticated, setUser }) {
     e.preventDefault()
     setError('')
     setLoading(true)
-
+           //  'http://localhost:8080/api/auth/signup'
     try {
-      const response = await axios.post('http://localhost:8080/api/auth/signup', formData)
+      const response = await axios.post('https://space-airline-app.onrender.com/airline/api/auth/signup', formData)
       const { token, userId, email, firstName, lastName, userType } = response.data
 
       localStorage.setItem('token', token)
