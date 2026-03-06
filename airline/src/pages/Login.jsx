@@ -20,7 +20,7 @@ function Login({ setIsAuthenticated, setUser }) {
     setLoading(true)
 
     try {
-      const response = await axios.post('http://localhost:8080/api/auth/login', formData)
+      const response = await axios.post('https://space-airline-app.onrender.com/airline/api/auth/login', formData)
       const { token, userId, email, firstName, lastName, userType } = response.data
 
       localStorage.setItem('token', token)
