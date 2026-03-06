@@ -1,4 +1,4 @@
-const http = require('http');
+const http = require('https');
 
 const demoUser = {
   email: "demo@airline.com",
@@ -13,16 +13,17 @@ const demoUser = {
 };
 
 const options = {
-  hostname: 'localhost',
-  port: 8080,
-  path: '/api/auth/signup',
+  hostname: 'space-airline-app.onrender.com',
+  port: 443,
+  path: '/airline/api/auth/signup',
   method: 'POST',
   headers: {
     'Content-Type': 'application/json'
+    
   }
 };
 
-const req = http.request(options, (res) => {
+const req = https.request(options, (res) => {
   let data = '';
   res.on('data', (chunk) => {
     data += chunk;
