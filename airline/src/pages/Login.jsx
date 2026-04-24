@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import axios from 'axios'
+import API_ENDPOINTS from '../config/apiConfig'
 import './Auth.css'
 
 function Login({ setIsAuthenticated, setUser }) {
@@ -20,7 +21,7 @@ function Login({ setIsAuthenticated, setUser }) {
     setLoading(true)
 
     try {
-      const response = await axios.post('https://space-airline-app.onrender.com/airline/api/auth/login', formData)
+      const response = await axios.post(API_ENDPOINTS.AUTH.LOGIN, formData)
       const { token, userId, email, firstName, lastName, userType } = response.data
 
       localStorage.setItem('token', token)

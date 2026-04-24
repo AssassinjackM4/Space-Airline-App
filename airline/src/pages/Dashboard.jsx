@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import API_ENDPOINTS from '../config/apiConfig'
 import './Dashboard.css'
 
 function Dashboard({ user }) {
@@ -15,7 +16,7 @@ function Dashboard({ user }) {
   const fetchBookings = async () => {
     try {
       const token = localStorage.getItem('token')
-      const response = await axios.get(`http://localhost:8080/api/bookings/user/${user.userId}`, {
+      const response = await axios.get(API_ENDPOINTS.BOOKINGS.USER(user.userId), {
         headers: { 'Authorization': `Bearer ${token}` }
       })
       setBookings(response.data)

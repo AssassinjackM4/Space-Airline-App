@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import API_ENDPOINTS from '../config/apiConfig'
 import './Features.css'
 
 function AddCustomer({ user }) {
@@ -23,7 +24,7 @@ function AddCustomer({ user }) {
   const fetchUserProfile = async () => {
     try {
       const token = localStorage.getItem('token')
-      const response = await axios.get(`http://localhost:8080/api/auth/profile/${user.userId}`, {
+      const response = await axios.get(API_ENDPOINTS.AUTH.PROFILE(user.userId), {
         headers: { 'Authorization': `Bearer ${token}` }
       })
       setFormData({
@@ -53,7 +54,7 @@ function AddCustomer({ user }) {
 
     try {
       const token = localStorage.getItem('token')
-      await axios.put(`http://localhost:8080/api/auth/profile/${user.userId}`, formData, {
+      await axios.put(API_ENDPOINTS.AUTH.UPDATE_PROFILE(user.userId), formData, {
         headers: { 'Authorization': `Bearer ${token}` }
       })
       setSuccess('Profile updated successfully!')

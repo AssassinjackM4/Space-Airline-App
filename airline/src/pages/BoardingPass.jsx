@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import API_ENDPOINTS from '../config/apiConfig'
 import './Features.css'
 
 function BoardingPass({ user }) {
@@ -14,7 +15,7 @@ function BoardingPass({ user }) {
   const fetchBoardingPasses = async () => {
     try {
       const token = localStorage.getItem('token')
-      const response = await axios.get(`http://localhost:8080/api/boarding-passes/user/${user.userId}`, {
+      const response = await axios.get(API_ENDPOINTS.BOARDING_PASSES.USER(user.userId), {
         headers: { 'Authorization': `Bearer ${token}` }
       })
       setBoardingPasses(response.data)

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import API_ENDPOINTS from '../config/apiConfig'
 import './Features.css'
 
 function CancelFlight({ user }) {
@@ -15,7 +16,7 @@ function CancelFlight({ user }) {
   const fetchBookings = async () => {
     try {
       const token = localStorage.getItem('token')
-      const response = await axios.get(`http://localhost:8080/api/bookings/user/${user.userId}`, {
+      const response = await axios.get(API_ENDPOINTS.BOOKINGS.USER(user.userId), {
         headers: { 'Authorization': `Bearer ${token}` }
       })
       setBookings(response.data.filter(b => b.status === 'CONFIRMED'))
@@ -31,7 +32,7 @@ function CancelFlight({ user }) {
 
     try {
       const token = localStorage.getItem('token')
-      await axios.delete(`http://localhost:8080/api/bookings/${bookingId}/cancel`, {
+      await axios.delete(API_ENDPOINTS.BOOKINGS.CANCEL(bookingId), {
         headers: { 'Authorization': `Bearer ${token}` }
       })
       setSuccess('Booking cancelled successfully!')

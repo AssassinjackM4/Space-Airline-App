@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import API_ENDPOINTS from '../config/apiConfig'
 import './Features.css'
 
 function FlightInfo() {
@@ -16,7 +17,7 @@ function FlightInfo() {
     try {
       setLoading(true)
       setError('')
-      const response = await axios.get('http://localhost:8080/api/flights/public/all')
+      const response = await axios.get(API_ENDPOINTS.FLIGHTS.ALL)
       console.log('Flights fetched:', response.data)
       setFlights(response.data)
     } catch (err) {

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import API_ENDPOINTS from '../config/apiConfig'
 import './Features.css'
 
 function BookFlight({ user }) {
@@ -18,7 +19,7 @@ function BookFlight({ user }) {
     try {
       setLoading(true)
       const token = localStorage.getItem('token')
-      const response = await axios.get('http://localhost:8080/api/flights/public/all', {
+      const response = await axios.get(API_ENDPOINTS.FLIGHTS.ALL, {
         headers: { 'Authorization': `Bearer ${token}` }
       })
       setFlights(response.data)
@@ -43,7 +44,7 @@ function BookFlight({ user }) {
     try {
       const token = localStorage.getItem('token')
       const response = await axios.post(
-        'http://localhost:8080/api/bookings/book',
+        API_ENDPOINTS.BOOKINGS.BOOK,
         {
           flightId: selectedFlight.id,
           numberOfPassengers: passengers,

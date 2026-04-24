@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import API_ENDPOINTS from '../config/apiConfig'
 import './AdminPanel.css'
 
 function AdminPanel({ user }) {
@@ -32,7 +33,7 @@ function AdminPanel({ user }) {
   const fetchFlights = async () => {
     try {
       const token = localStorage.getItem('token')
-      const response = await axios.get('http://localhost:8080/api/flights/public/all', {
+      const response = await axios.get(API_ENDPOINTS.FLIGHTS.ALL, {
         headers: { 'Authorization': `Bearer ${token}` }
       })
       setFlights(response.data)
@@ -60,7 +61,7 @@ function AdminPanel({ user }) {
 
     try {
       const token = localStorage.getItem('token')
-      await axios.post('http://localhost:8080/api/flights/admin/create', formData, {
+      await axios.post(API_ENDPOINTS.FLIGHTS.CREATE, formData, {
         headers: { 'Authorization': `Bearer ${token}` }
       })
       setSuccess('Flight added successfully!')
@@ -91,7 +92,7 @@ function AdminPanel({ user }) {
 
     try {
       const token = localStorage.getItem('token')
-      await axios.delete(`http://localhost:8080/api/flights/admin/${flightId}`, {
+      await axios.delete(API_ENDPOINTS.FLIGHTS.DELETE(flightId), {
         headers: { 'Authorization': `Bearer ${token}` }
       })
       setSuccess('Flight deleted successfully!')
