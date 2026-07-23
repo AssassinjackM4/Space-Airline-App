@@ -16,32 +16,33 @@ function Home({ isAuthenticated }) {
       id: 2,  
       image: 'https://i.pinimg.com/1200x/c1/92/cb/c192cb7eef75c1821648eb68bc93b7ab.jpg',
       title: 'Soar Above the Clouds',
-      description: 'Comfortable seats and excellent service await you'
+      description: 'Comfortable Seats and excellent service await you'
     },
     {
       id: 3,
-      image: 'https://i.pinimg.com/1200x/40/ac/6e/40ac6ecbdde74daf6b94268e92b4eb3c.jpg',
-      title: 'Journey with Confidence',
-      description: 'Safe, reliable, and on-time flights to your favorite destinations'
+      image: 'https://www.gratistodo.com/wp-content/uploads/2017/02/Paris-Wallpapers-1.jpg',
+      title: 'Explore the World',
+      description: 'Discover New destinations & Create Unforgettable Memories'
     },
     {
       id: 4,
-      image: 'https://www.gratistodo.com/wp-content/uploads/2017/02/Paris-Wallpapers-1.jpg',
-      title: 'Explore the World',
-      description: 'Discover new destinations and create unforgettable memories'
+      image: 'https://i.pinimg.com/1200x/94/c1/88/94c1886d5c428b848e1550c2e1c5d518.jpg',
+      title: 'Ocean-Sky Premium Routes',
+      description: 'Book Smooth Journeys Designed for Unforgettable Views'
     },
     {
       id: 5,
-      image: 'https://i.pinimg.com/1200x/a5/3c/54/a53c54218403d894323ecde28abcb5c5.jpg',
-      title: '',
-      description: ''
+      image: 'https://i.pinimg.com/1200x/40/ac/6e/40ac6ecbdde74daf6b94268e92b4eb3c.jpg',
+      title: 'Journey with Confidence',
+      description: 'Safe, reliable, & on-time flights to your favorite destinations'
+
     }
   ]
 
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length)
-    }, 5000)
+    }, 4000)
     return () => clearInterval(timer)
   }, [slides.length])
 
@@ -81,8 +82,9 @@ function Home({ isAuthenticated }) {
         </div>
 
         {/* Navigation Buttons */}
-        <button className="carousel-btn prev-btn" onClick={previousSlide}>❮</button>
-        <button className="carousel-btn next-btn" onClick={nextSlide}>❯</button>
+        <button className="carousel-btn prev-btn" onClick={previousSlide} aria-label="Previous slide">❮</button>
+        <button className="carousel-btn next-btn" onClick={nextSlide} aria-label="Next slide">❯</button>
+
 
         {/* Indicators */}
         <div className="carousel-indicators">
@@ -116,8 +118,8 @@ function Home({ isAuthenticated }) {
           <DestinationCard city="Sydney" airport="SYD" image="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=300&fit=crop" />
           <DestinationCard city="Norway" airport="NRY" image="https://i.pinimg.com/736x/1c/59/82/1c59829e2abe7cbde2c453a180f2a914.jpg" />
           <DestinationCard city="New York" airport="JFK" image="https://i.pinimg.com/1200x/f8/62/8b/f8628bc960abb219196c459bf854f3dd.jpg" />
-          <DestinationCard city=" " airport="" image="https://i.pinimg.com/736x/54/c9/16/54c9162ee5bf0f2f0982e7cc97d73e02.jpg" />
-          <DestinationCard city=" " airport="GMP" image="https://i.pinimg.com/736x/a8/25/e7/a825e716a22f48b7468f2b25a57f48ea.jpg" />
+          <DestinationCard city="Monaco" airport="" image="https://i.pinimg.com/736x/54/c9/16/54c9162ee5bf0f2f0982e7cc97d73e02.jpg" />
+          <DestinationCard city="Seoul" airport="GMP" image="https://i.pinimg.com/736x/a8/25/e7/a825e716a22f48b7468f2b25a57f48ea.jpg" />
 
         </div>
       </section>
